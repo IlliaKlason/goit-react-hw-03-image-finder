@@ -14,6 +14,10 @@ export class App extends Component {
   state = { query: '', page: 1, totalHits: 0, hits: [], loading: false };
 
   componentDidUpdate(past, prevState) {
+    window.scrollBy({
+      top: document.body.clientHeight,
+      behavior: 'smooth',
+    });
     let { query, page } = this.state;
     if (prevState.query !== query) {
       this.formFetch(query);

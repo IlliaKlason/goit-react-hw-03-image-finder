@@ -16,7 +16,7 @@ class Modal extends Component {
   render() {
     const { src, alt } = this.props;
     return createPortal(
-      <BackdropStyled onClick={e => this.closeModal(e)}>
+      <BackdropStyled onClick={e => this.handleKeyDown(e)}>
         <ModalStyled>
           <img src={src} alt={alt} loading="lazy" />
         </ModalStyled>
@@ -26,11 +26,8 @@ class Modal extends Component {
   }
 
   handleKeyDown = e => {
-    if (e.code === 'Escape') return this.props.modalToggle();
-  };
-
-  closeModal = e => {
-    if (e.target === e.currentTarget) this.props.modalToggle();
+    if (e.code === 'Escape' || e.target === e.currentTarget)
+      return this.props.modalToggle();
   };
 }
 

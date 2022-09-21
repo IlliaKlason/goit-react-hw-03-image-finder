@@ -20,7 +20,6 @@ const Searchbar = ({ updateQuery }) => {
           <button type="submit" className="button">
             <BsApple fontSize="30px" />
           </button>
-
           <input
             name="query"
             className="input"
